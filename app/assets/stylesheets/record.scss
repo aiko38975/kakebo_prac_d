@@ -1,0 +1,51 @@
+
+// -------共通設定-------
+body{
+  background-color: #ede3da;
+  font-family: 'Zen Maru Gothic', sans-serif;
+}
+
+// -------topページ設定-------
+
+.top-page{
+  width: 98vw;
+  height: 100vh;
+}
+
+.top-main-contents{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+.top-main-contents-logos{
+  font-size: 150px;
+  font-weight: 100;
+  span:nth-child(1) { color: #ff5992; }
+  span:nth-child(6) { color: #a4d555; }
+}
+
+// -------ボタン---------
+.button-lists{
+  display: flex;
+  justify-content: space-around;
+  align-items: center
+}
+
+.button-lists li{
+  width: 300px;
+  height: 50px;
+  text-align: center;
+  font-size: 50px;
+  color: #0a090900;
+  list-style: none;
+  // border-radius: 4;
+  // border: 1px solid #ECEADA ;
+ }
+
+ .button-lists a{
+  text-decoration: none;
+  color: rgb(58, 17, 17);
+ }

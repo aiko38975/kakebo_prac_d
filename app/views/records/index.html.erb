@@ -1,0 +1,25 @@
+<div class='top-page'>
+  <div class='top-main-contents'>
+      <div class='top-main-contents-logos'>
+       <p id='title'><span>家</span>
+       <span>計</span>
+       <span>簿</span><br>
+       <span>ア</span>
+       <span>プ</span>
+       <span>リ</span></p>
+      </div>
+      <div class='top-main-contents-button'>
+        <ul class='button-lists'>
+        <% if user_signed_in? %>
+          <li><%= link_to "#{current_user.nickname}さん", records_path, class: 'user-nickname',id:'top-btn' %></li>
+          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'top-logout',id:'top-btn' %></li>
+        <% else %>
+          <li><%= link_to 'ログイン', new_user_session_path, class:'top-log-in', method: :get, id:'top-btn' %></li>
+          <li><%= link_to '新規登録', new_user_registration_path, class:'top-sign-up',method: :get, id:'top-btn' %></li>
+        <% end %>
+        </ul>
+      </div>
+  </div>
+</div>
+
+
