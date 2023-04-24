@@ -11,7 +11,7 @@
       <div class='top-main-contents-button'>
         <ul class='button-lists'>
         <% if user_signed_in? %>
-          <li><%= link_to "#{current_user.nickname}さん", records_path, class: 'user-nickname',id:'top-btn' %></li>
+          <li><%= link_to "#{current_user.nickname}さん", new_record_path, class: 'user-nickname',id:'top-btn' %></li>
           <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'top-logout',id:'top-btn' %></li>
         <% else %>
           <li><%= link_to 'ログイン', new_user_session_path, class:'top-log-in', method: :get, id:'top-btn' %></li>

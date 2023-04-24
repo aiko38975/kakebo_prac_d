@@ -1,0 +1,35 @@
+<h1>メインページ</h1>
+
+<div class='record-multi-input'>
+    <div>
+      <%= form_with model:@form, url: records_path, method: :post, local: true do |form| %>
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th class='table-top'>日付</th>
+              <th class='table-top'>費目</th>
+              <th class='table-top'>方法</th>
+              <th class='table-top'>金額</th>
+              <th class='table-top'>メモ</th>
+            </tr> 
+          </thead>
+          <tbody>
+            <%= form.fields_for :records do |f| %>
+              <tr>
+                <td><%= f.check_box :availability %></td>
+                <td><%= f.date_field :recorded_at, class:'date-input1', id:'record-price' %></td>
+                <td><%= f.collection_select(:spending_way_id,  SpendingWay.all, :id, :name, {}, {class:'select-box1', id:'record-spending-way'}) %></td>
+                <td><%= f.collection_select(:spending_pay_id,  SpendingPay.all, :id, :name, {}, {class:'select-box1', id:'record-spending-pay'}) %></td>
+                <td><%= f.text_field :price, class:'price-input1', id:'record-price' %></td>
+                <td><%= f.text_field :description, class:'items-text1', id:'record-description' %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+          <div class='sell-btn-content1'>
+          <%= form.submit '登録する' ,class:'sell-btn1', id: 'submit-save' %>
+          </div>
+      <% end %>
+    </div>
+  </div>
