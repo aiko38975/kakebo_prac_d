@@ -1,6 +1,6 @@
 class Form::RecordCollection < Form::Base
-  FORM_COUNT = 10 #ここで、作成したい登録フォームの数を指定
-  attr_accessor :records 
+  FORM_COUNT = 2
+  attr_accessor :records, :user_id
 
   def initialize(attributes = {})
     super attributes
@@ -8,19 +8,20 @@ class Form::RecordCollection < Form::Base
   end
 
   def records_attributes=(attributes)
-    self.records = attributes.map { |_, v| Record.new(v) }
+    # self.records = attributes.map { |_, v| Record.new(v) }
+    self.records = attributes.map { |_, v| Record.new(v.merge(user_id: user_id)) }
   end
 
   def save
     Record.transaction do
       self.records.map do |record|
-        if record.availability # ここでチェックボックスにチェックを入れている商品のみが保存される
+        if record.availability
           record.save
         end
       end
     end
-      return true
+     return true
     rescue => e
-      return false
+     return false
   end
 end
